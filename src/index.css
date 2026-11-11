@@ -1,0 +1,615 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,900;1,900&family=Permanent+Marker&family=Pirata+One&family=Space+Mono:wght@400;700&family=Tiny5&family=UnifrakturCook:wght@700&display=swap");
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    color: #f2efe5;
+    background: #11110f;
+    font-family: "Barlow Condensed", sans-serif;
+    font-synthesis: none;
+  }
+
+  html {
+    background: #11110f;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:focus-visible {
+    outline: 3px solid #f2efe5;
+    outline-offset: -5px;
+  }
+
+  ::selection {
+    color: #11110f;
+    background: #c7ff24;
+  }
+}
+
+.brand {
+  font-family: "UnifrakturCook", serif;
+}
+
+.display-title,
+.tab-title,
+.menu-link,
+.outline-title {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 900;
+}
+
+.display-title {
+  text-wrap: balance;
+}
+
+.outline-title {
+  color: transparent;
+  -webkit-text-stroke: 2px currentColor;
+  filter: drop-shadow(4px 4px 0 rgba(0, 0, 0, 0.2));
+  letter-spacing: -0.08em;
+  font-style: italic;
+  font-weight: 900;
+}
+
+.halftone {
+  background-image: radial-gradient(currentColor 0.8px, transparent 0.8px);
+  background-size: 5px 5px;
+  mix-blend-mode: multiply;
+}
+
+.world-panel::after {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(90deg, transparent 49.8%, rgba(0, 0, 0, 0.09) 50%, transparent 50.2%),
+    repeating-linear-gradient(0deg, transparent 0 3px, rgba(255, 255, 255, 0.025) 4px);
+  opacity: 0.55;
+}
+
+.world-image > * {
+  z-index: 2;
+}
+
+.world-image .world-photo {
+  position: relative;
+  z-index: 0;
+}
+
+.world-image .world-tint {
+  z-index: 1;
+}
+
+.sticker {
+  position: absolute;
+  z-index: 8;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  line-height: 0.85;
+  text-align: center;
+}
+
+/* Artifact I: black-metal forest relic */
+.world-bog .display-title,
+.world-bog .outline-title,
+.world-bog .tab-title {
+  font-family: "Pirata One", serif;
+}
+
+.world-bog .display-title {
+  letter-spacing: -0.02em;
+  text-shadow:
+    2px 2px 0 #090b08,
+    5px 5px 0 rgba(206, 255, 82, 0.14);
+}
+
+.world-bog .world-photo {
+  filter: grayscale(1) brightness(0.5) contrast(1.55) sepia(0.25);
+}
+
+.world-bog .world-tint {
+  background: linear-gradient(180deg, rgba(2, 8, 2, 0.2), #0a1007 95%);
+  mix-blend-mode: multiply;
+  opacity: 0.72;
+}
+
+.world-bog .halftone {
+  background-image:
+    radial-gradient(ellipse at 50% 90%, transparent 0 30%, rgba(206, 255, 82, 0.13) 70%),
+    radial-gradient(currentColor 0.7px, transparent 0.7px);
+}
+
+.bog-thorns {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  opacity: 0.55;
+  background:
+    linear-gradient(62deg, transparent 0 47%, currentColor 48% 48.5%, transparent 49%) 0 0 / 170px
+      210px,
+    linear-gradient(-65deg, transparent 0 47%, currentColor 48% 48.5%, transparent 49%) 30px 20px /
+      190px 240px;
+  mask-image: linear-gradient(to top, black, transparent 80%);
+}
+
+.sticker-bog {
+  top: 14%;
+  right: 8%;
+  width: 82px;
+  height: 82px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  font-family: "Pirata One", serif;
+  font-size: 25px;
+  transform: rotate(9deg);
+  box-shadow: 4px 4px 0 #080a07;
+}
+
+.bog-script {
+  position: absolute;
+  z-index: 7;
+  bottom: 25%;
+  left: 5%;
+  font-family: "UnifrakturCook", serif;
+  font-size: clamp(20px, 2vw, 34px);
+  transform: rotate(-7deg);
+}
+
+/* Artifact II: late-90s desktop heresy */
+.world-knight .display-title,
+.world-knight .outline-title,
+.world-knight .tab-title {
+  font-family: "Tiny5", monospace;
+}
+
+.world-knight .display-title {
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+  text-shadow: 3px 3px 0 #b7b7b7;
+}
+
+.world-knight .world-copy {
+  background-color: #eeecdc;
+  background-image:
+    linear-gradient(rgba(0, 0, 128, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 128, 0.08) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.world-knight .world-photo {
+  filter: grayscale(0.25) contrast(1.05) saturate(0.75);
+}
+
+.world-knight .world-tint {
+  background: linear-gradient(135deg, transparent 50%, rgba(0, 0, 128, 0.22));
+  mix-blend-mode: normal;
+  opacity: 0.65;
+}
+
+.world-knight .halftone {
+  display: none;
+}
+
+.world-knight .artifact-label {
+  border: 2px outset #fff;
+  color: white;
+  background: #000080;
+  box-shadow: 2px 2px 0 #777;
+}
+
+.xp-window {
+  position: absolute;
+  z-index: 9;
+  top: 12%;
+  right: 5%;
+  width: min(245px, 48%);
+  border: 3px outset #eee;
+  color: black;
+  background: #c0c0c0;
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.35);
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+}
+
+.xp-titlebar {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 5px;
+  color: white;
+  background: linear-gradient(90deg, #000080, #1084d0);
+  font-weight: 700;
+}
+
+.xp-body {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 10px 7px;
+}
+
+.xp-error {
+  display: grid;
+  width: 29px;
+  height: 29px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  background: #d20d15;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.xp-actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 4px 8px 10px;
+}
+
+.xp-actions span {
+  min-width: 58px;
+  border: 2px outset #fff;
+  padding: 2px 5px;
+  text-align: center;
+}
+
+.sticker-xp {
+  right: 8%;
+  bottom: 20%;
+  border: 2px solid #000080;
+  padding: 8px;
+  color: #000080;
+  background: #f5f050;
+  font-family: "Tiny5", monospace;
+  font-size: 17px;
+  transform: rotate(-6deg);
+}
+
+/* Artifact III: skate-zine sewer mutant */
+.world-slime .display-title,
+.world-slime .outline-title {
+  font-style: italic;
+  letter-spacing: -0.09em;
+  transform: skewY(-2deg);
+}
+
+.world-slime .world-photo {
+  filter: grayscale(1) contrast(1.8);
+}
+
+.world-slime .world-tint {
+  background: #00b7dd;
+  mix-blend-mode: screen;
+  opacity: 0.22;
+}
+
+.slime-drip {
+  position: absolute;
+  z-index: 5;
+  top: -2px;
+  left: 24%;
+  width: 32%;
+  height: 70px;
+  border-radius: 0 0 50% 50%;
+  background: currentColor;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 28%,
+    83% 28%,
+    78% 92%,
+    63% 53%,
+    50% 100%,
+    36% 40%,
+    19% 76%,
+    14% 27%,
+    0 27%
+  );
+  opacity: 0.85;
+}
+
+.sticker-slime {
+  top: 16%;
+  right: 7%;
+  width: 90px;
+  height: 90px;
+  border: 4px solid currentColor;
+  border-radius: 48% 52% 55% 45%;
+  background: #16d8ff;
+  font-family: "Permanent Marker", cursive;
+  font-size: 21px;
+  transform: rotate(12deg);
+}
+
+.slime-tag {
+  position: absolute;
+  z-index: 7;
+  bottom: 26%;
+  left: 5%;
+  font-family: "Permanent Marker", cursive;
+  font-size: clamp(24px, 3vw, 48px);
+  transform: rotate(-7deg);
+  -webkit-text-stroke: 1px #16d8ff;
+}
+
+/* Artifact IV: occult terminal / failed divination */
+.world-oracle .display-title {
+  font-family: "UnifrakturCook", serif;
+  letter-spacing: 0;
+  text-shadow: 0 0 18px rgba(16, 9, 25, 0.5);
+}
+
+.world-oracle .world-copy {
+  background-image: repeating-linear-gradient(0deg, transparent 0 3px, rgba(16, 9, 25, 0.08) 4px);
+}
+
+.world-oracle .world-photo {
+  filter: grayscale(1) contrast(1.5) brightness(0.68);
+}
+
+.oracle-grid {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  background:
+    linear-gradient(currentColor 1px, transparent 1px),
+    linear-gradient(90deg, currentColor 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.13;
+  transform: perspective(300px) rotateX(55deg) scale(1.3);
+  transform-origin: bottom;
+}
+
+.oracle-readout {
+  position: absolute;
+  z-index: 8;
+  top: 14%;
+  right: 6%;
+  display: grid;
+  border: 1px solid currentColor;
+  padding: 12px 15px;
+  font-family: "Space Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-align: center;
+  backdrop-filter: blur(4px);
+}
+
+.oracle-readout strong {
+  font-family: "UnifrakturCook", serif;
+  font-size: 34px;
+  letter-spacing: 0;
+}
+
+.sticker-oracle {
+  bottom: 19%;
+  left: 5%;
+  border: 1px solid currentColor;
+  padding: 8px 12px;
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  transform: rotate(4deg);
+}
+
+/* Artifact V: hand-assembled riso field guide */
+.world-zine .display-title,
+.world-zine .outline-title {
+  font-family: "Permanent Marker", cursive;
+  letter-spacing: -0.04em;
+  transform: rotate(-2deg);
+}
+
+.world-zine .world-copy {
+  background-image: repeating-linear-gradient(
+    -7deg,
+    transparent 0 20px,
+    rgba(23, 11, 7, 0.08) 21px
+  );
+}
+
+.world-zine .world-photo {
+  filter: grayscale(1) contrast(1.7);
+}
+
+.world-zine .world-tint {
+  background: #ff5b35;
+  mix-blend-mode: multiply;
+  opacity: 0.48;
+}
+
+.zine-tape {
+  position: absolute;
+  z-index: 8;
+  top: 8%;
+  left: 39%;
+  width: 110px;
+  height: 28px;
+  background: rgba(241, 229, 184, 0.78);
+  transform: rotate(-11deg);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.18);
+}
+
+.sticker-zine {
+  top: 18%;
+  right: 6%;
+  width: 86px;
+  height: 86px;
+  border: 3px solid currentColor;
+  background: #ff5b35;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 19px;
+  transform: rotate(8deg);
+  box-shadow: 5px 5px 0 currentColor;
+}
+
+.zine-note {
+  position: absolute;
+  z-index: 8;
+  bottom: 24%;
+  left: 5%;
+  font-family: "Permanent Marker", cursive;
+  font-size: clamp(17px, 2vw, 28px);
+  transform: rotate(-5deg);
+}
+
+/* Artifact VI: Mystery Tavern guest tap */
+.world-tavern .display-title,
+.world-tavern .outline-title,
+.world-tavern .tab-title {
+  font-family: "Pirata One", serif;
+  letter-spacing: -0.015em;
+}
+
+.world-tavern .display-title {
+  text-shadow:
+    2px 2px 0 #c69cff,
+    5px 5px 0 rgba(22, 11, 32, 0.3);
+}
+
+.world-tavern .world-copy {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(198, 156, 255, 0.35) 0 2px, transparent 3px),
+    radial-gradient(circle at 85% 78%, rgba(22, 11, 32, 0.2) 0 3px, transparent 4px), #7d42d8;
+  background-size:
+    32px 32px,
+    49px 49px;
+}
+
+.world-tavern .world-photo {
+  filter: grayscale(0.45) contrast(1.35) brightness(0.58) sepia(0.15);
+}
+
+.world-tavern .world-tint {
+  background: linear-gradient(145deg, rgba(63, 18, 99, 0.2), #7d42d8);
+  mix-blend-mode: color;
+  opacity: 0.78;
+}
+
+.world-tavern .halftone {
+  background-image:
+    linear-gradient(30deg, transparent 48%, currentColor 49% 51%, transparent 52%),
+    radial-gradient(currentColor 0.7px, transparent 0.7px);
+  background-size:
+    110px 95px,
+    5px 5px;
+  opacity: 0.2;
+}
+
+.tavern-triangle {
+  position: absolute;
+  z-index: 8;
+  top: 10%;
+  right: 7%;
+  width: clamp(90px, 14vw, 170px);
+  height: clamp(90px, 14vw, 170px);
+  color: #c69cff;
+  filter: drop-shadow(5px 5px 0 #160b20);
+  transform: rotate(4deg);
+}
+
+.sticker-tavern {
+  right: 7%;
+  bottom: 18%;
+  width: 78px;
+  height: 78px;
+  border: 3px double #c69cff;
+  border-radius: 50%;
+  color: #c69cff;
+  background: #160b20;
+  font-family: "Pirata One", serif;
+  font-size: 20px;
+  transform: rotate(-9deg);
+}
+
+.tavern-note {
+  position: absolute;
+  z-index: 8;
+  bottom: 25%;
+  left: 5%;
+  border-top: 1px solid #c69cff;
+  border-bottom: 1px solid #c69cff;
+  padding: 5px 8px;
+  color: #c69cff;
+  background: rgba(22, 11, 32, 0.78);
+  font-family: "Space Mono", monospace;
+  font-size: clamp(8px, 1vw, 11px);
+  letter-spacing: 0.13em;
+}
+
+.artifact-page {
+  min-width: 320px;
+}
+
+.artifact-page .world-image::after {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  border: 12px solid currentColor;
+  opacity: 0.12;
+}
+
+.artifact-page .world-copy {
+  min-height: 620px;
+}
+
+.artifact-page .sticker {
+  transform: scale(1.12) rotate(var(--sticker-angle, 7deg));
+}
+
+.panel-content {
+  animation: reveal 700ms cubic-bezier(0.77, 0, 0.18, 1) both;
+}
+
+@keyframes reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (max-width: 767px) {
+  .drop-stage {
+    min-height: auto;
+  }
+
+  .world-panel.active {
+    flex-basis: auto;
+  }
+
+  .panel-content {
+    min-width: 100%;
+  }
+
+  .outline-title {
+    -webkit-text-stroke-width: 1.5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
